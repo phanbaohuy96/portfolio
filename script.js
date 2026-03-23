@@ -283,6 +283,34 @@ function initMagnetic() {
   });
 }
 
+// ===== Theme toggle =====
+function initTheme() {
+  const toggle = document.getElementById('themeToggle');
+  if (!toggle) return;
+
+  // Restore saved preference, or use system preference
+  const saved = localStorage.getItem('theme');
+  if (saved) {
+    document.documentElement.setAttribute('data-theme', saved);
+  } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+
+  toggle.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme') || 'dark';
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+
+  // Listen for OS theme changes
+  window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
+    if (!localStorage.getItem('theme')) {
+      document.documentElement.setAttribute('data-theme', e.matches ? 'light' : 'dark');
+    }
+  });
+}
+
 // ===== Smooth body reveal =====
 document.addEventListener('DOMContentLoaded', () => {
   document.body.style.opacity = '0';
@@ -290,6 +318,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.transition = 'opacity 0.6s ease';
     document.body.style.opacity = '1';
   });
+  initTheme();
   initTilt();
   initMagnetic();
 });
