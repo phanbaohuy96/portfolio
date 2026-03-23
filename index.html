@@ -3,14 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Huy Phan - Senior Mobile Developer specializing in Flutter & Android with 6+ years of experience" />
+  <meta name="description" content="Huy Phan - Senior Mobile Developer specializing in Flutter & Android with 8+ years of experience" />
   <title>Huy Phan | Senior Mobile Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Ambient Background -->
+  <div class="ambient-bg">
+    <div class="ambient-orb"></div>
+    <div class="ambient-orb"></div>
+    <div class="ambient-orb"></div>
+  </div>
+  <div class="grid-overlay"></div>
+
   <!-- Navigation -->
   <nav class="nav" id="nav">
     <div class="nav-container">
@@ -31,11 +39,13 @@
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero" id="hero">
+  <div class="hero-wrapper">
+    <canvas id="particles-canvas"></canvas>
+    <section class="hero" id="hero">
     <div class="hero-content">
       <p class="hero-greeting">Hi, I'm</p>
       <h1 class="hero-name">Huy Phan</h1>
-      <h2 class="hero-title">Senior Mobile Developer</h2>
+      <h2 class="hero-title"><span class="hero-title-typed" id="typed-title"></span><span class="hero-cursor"></span></h2>
       <p class="hero-desc">Building high-performance, scalable mobile applications with Flutter & Android for 8+ years. Now exploring AI agents and autonomous systems.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-primary">Get in Touch</a>
@@ -82,6 +92,7 @@
       </div>
     </div>
   </section>
+  </div><!-- /hero-wrapper -->
 
   <!-- About Section -->
   <section class="section" id="about">
@@ -119,6 +130,7 @@
   <section class="section section-alt" id="skills">
     <div class="container">
       <h2 class="section-title">Skills & Expertise</h2>
+      <p class="section-subtitle">Technologies and tools I work with daily</p>
       <div class="skills-grid">
         <div class="skill-category skill-featured">
           <div class="skill-header-row">
@@ -238,6 +250,7 @@
   <section class="section" id="experience">
     <div class="container">
       <h2 class="section-title">Work Experience</h2>
+      <p class="section-subtitle">My professional journey from 2017 to present</p>
       <div class="timeline">
 
         <div class="timeline-item">
@@ -380,6 +393,7 @@
   <section class="section section-alt" id="projects">
     <div class="container">
       <h2 class="section-title">Key Projects & Contributions</h2>
+      <p class="section-subtitle">Highlights from 15+ projects across multiple domains</p>
       <div class="projects-grid">
 
         <a href="https://github.com/phanbaohuy96/flutter_base_structure" target="_blank" rel="noopener" class="project-card project-card-link">
